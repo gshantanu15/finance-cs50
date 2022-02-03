@@ -1,0 +1,34 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    History
+{% endblock %}
+
+{% block main %}
+    <h2 style="padding: 20px;">Transaction History</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>Type</th>
+                <th>Company Name</th>
+                <th>Symbol</th>
+                <th>Quantity</th>
+                <th>Transaction Price</th>
+                <th>Date and Time (UTC)</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for id, values in data.items() %}
+            <tr>
+                <td>{{ values[0] }}</td>
+                <td>{{ values[1] }}</td>
+                <td>{{ values[2] }}</td>
+                <td>{{ values[3] }}</td>
+                <td>{{ values[4] | usd }}</td>
+                <td>{{ values[5] }}</td>
+            </tr>
+            {% endfor %}
+
+        </tbody>
+    </table>
+{% endblock %}

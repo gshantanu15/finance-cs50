@@ -1,0 +1,45 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Home
+{% endblock %}
+
+{% block main %}
+    <h2 style="padding: 20px;">See your Portfolio Value!</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>Company Name</th>
+                <th>Stock Quantity</th>
+                <th>Current Price</th>
+                <th>Value of Holding</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for symbol, values in stock.items() %}
+            <tr>
+                <td>{{ values[0] }}</td>
+                <td>{{ values[1] }}</td>
+                <td>{{ values[2] }}</td>
+                <td>{{ values[3] }}</td>
+            </tr>
+            {% endfor %}
+
+        </tbody>
+    </table>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Cash Balance</th>
+                <th>Grand Total Value</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>{{ cash }}</td>
+                <td>{{ gtotal }}</td>
+            </tr>
+        </tbody>
+    </table>
+{% endblock %}
